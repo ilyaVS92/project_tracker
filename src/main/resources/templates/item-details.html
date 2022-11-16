@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html smlns:th="http://thymeleaf.org" xmlns:smlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Context-Type" content="text/html" charset="UTF-8">
+    <title>Item details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header-black"></header>
+<div class="container mt-5">
+    <div th:each="post : ${singlePostItem}" class="alert alert-info mt-2">
+        <h2 th:text="${post.description}"/></h2>
+        <p><b>Post text:</b> <span th:text="${post.postText}"></span></p>
+        <p><b>Status:</b> <span th:text="${post.status}"></span></p>
+        <p><b>Last Modified:</b> <span th:text="${post.dateModified}"/></span></p>
+        <p><b>Date Created:</b> <span th:text="${post.dateCreated}"/></span></p>
+        <p><b>Completed:</b> <span th:text="${post.completed}" /></span></p>
+        <a th:href="'/'+${post.id}+'/add-subpost'" class="btn btn-warning">Add Comment</a>
+        <a th:href="'/'+${post.id}+'/edit'" class="btn btn-warning">Edit</a>
+        <a th:href="'/'+${post.id}+'/delete'" class="btn btn-warning">Delete</a>
+
+        <p><b></b></p>
+    </div>
+</div>
+<!--<div class="container mt-5">-->
+<!--    <h1>ITEM DETAILS</h1>-->
+<!--&lt;!&ndash;    <div th:each="el : ${textItem}" class="alert alert-info mt-2">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h3 th:text="${el.description}"/><br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p th:text="${el.id}"/><br>&ndash;&gt;-->
+<!--        <a th:href="'/item-details/' + ${el.id} +'/edit" class="btn btn-warning">Edit</a>-->
+<!--        <a th:href="'/item-details/' + ${el.id} + '/remove'" class="btn btn-warning">Delete</a>-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</div>-->
+<!--<div th:each="post:${singlePostItem}" class="list-group w-auto">-->
+<!--    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">-->
+<!--        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">-->
+<!--        <div class="d-flex gap-2 w-100 justify-content-between">-->
+<!--            <div>-->
+<!--                <h6 th:text="${post.id}+'. '+${post.description}" class="mb-0">Created Date</h6>-->
+<!--                <p th:text="${post.status}" class="mb-0 opacity-75"/>-->
+<!--            </div>-->
+<!--            <small class="opacity-50 text-nowrap">now</small>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">-->
+<!--        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">-->
+<!--        <div class="d-flex gap-2 w-100 justify-content-between">-->
+<!--            <div>-->
+<!--                <h6 class="mb-0">Description</h6>-->
+<!--                <p class="mb-0 opacity-75">Some placeholder content in a paragraph that goes a little longer so it wraps to a new line.</p>-->
+<!--            </div>-->
+<!--            <small class="opacity-50 text-nowrap">3d</small>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">-->
+<!--        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">-->
+<!--        <div class="d-flex gap-2 w-100 justify-content-between">-->
+<!--            <div>-->
+<!--                <h6 class="mb-0">Status</h6>-->
+<!--                <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>-->
+<!--            </div>-->
+<!--            <small class="opacity-50 text-nowrap">1w</small>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--</div>-->
+</body>
+</html>

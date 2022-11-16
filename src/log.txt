@@ -1,0 +1,12 @@
+2022-xi-12: added details page
+2022-xi-13: added link to detail page; unable to dx from h2 to mysql
+2022-xi-14: remade project and changed from h2 to mysql; needed start mamp, config password and auth, and to create a db before the program would run
+2022-xi-15: got project list page (formally to-do list) working - lesson from here: always go to the line indicated in the error
+changed list type for item list. Now list of posts is clickable and takes user to detail page
+2022-xi-16:
+todo: 1. add validation to textboxes
+todo: 2. add checkbox for completed items
+todo: 3. add information about dates to post-page - x
+todo: 4. convert date to format
+todo: 5. add textboxes to add-item and detail pages
+todo: 6. add delete and edit buttons; add functionality
