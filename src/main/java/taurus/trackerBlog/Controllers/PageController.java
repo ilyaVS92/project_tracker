@@ -1,16 +1,14 @@
 package taurus.trackerBlog.Controllers;
 
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import taurus.trackerBlog.Models.Post;
 import taurus.trackerBlog.Repositories.PostRepository;
 
+import java.sql.ResultSet;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -27,8 +25,12 @@ public class PageController {
     }
 
     @GetMapping("/To-Do_lists")
-    public String getPostPage (Model model){
-        Iterable<Post> postItems = postRepository.findAll();
+    public String getPostPageWithAllNodes (Model model){
+        Iterable<Post> postItems = postRepository.findNodePosts();
+//        Iterable<Post> postItems = postRepository.findAll();
+//        Optional<ArrayList<Post>> results = postRepository.findNodePosts();
+//        ArrayList<Post> postItems = postRepository.findNodePosts();
+//        ArrayList<Post> postItems = results.get();
         model.addAttribute("postItems",postItems);
         return "post-page";
     }
@@ -46,9 +48,27 @@ public class PageController {
         Optional<Post> singlePostItem = postRepository.findById(id);
         ArrayList<Post> singlePostItemResult = new ArrayList<>();
         singlePostItem.ifPresent(singlePostItemResult :: add);
+
+        ArrayList<Post> childPosts = postRepository.findAllChildPosts(id);
+
+        model.addAttribute("childPosts", childPosts);
         model.addAttribute("singlePostItem", singlePostItemResult);
-        return "item-details";
+        return "details-child-list";
     }
+//    @GetMapping("/item-details/{id}")//newest 22-xi-17
+//    public String showChildrenPosts(Model model, @PathVariable(value = "id") long id){
+//        if(!postRepository.existsById(id)){
+//            return "landingDNE";
+//        }
+//
+//        Iterable<Post> childPosts = postRepository.findAllChildPosts(id);
+//
+////        Optional<Post> singlePostItem = postRepository.findById(id);
+////        ArrayList<Post> singlePostItemResult = new ArrayList<>();
+////        singlePostItem.ifPresent(singlePostItemResult :: add);
+//        model.addAttribute("childPosts", childPosts);
+//        return "item-details";
+//    }
 
     @PostMapping("/add-item")
     public String addPostItem(@RequestParam String description, @RequestParam String postText, @RequestParam String status, Model model){

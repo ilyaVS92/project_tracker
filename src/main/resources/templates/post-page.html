@@ -13,16 +13,16 @@
 </div>
 
 <div th:each="post:${postItems}" class="list-group w-auto">
-
 <a th:href="'/item-details/' + ${post.id}" class="list-group-item list-group-item-action d-flex gap-1 py-3" aria-current="true">
     <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
     <div class="d-flex gap-1 w-100 justify-content-between">
         <div>
-            <h6 th:text="${#dates.format(post.dateCreated,'dd-MM-yyyy zzz')} + '. '+${post.description}" class="mb-0"/>
+            <h6 th:text="${#dates.format(post.dateCreated,'dd-MM-yyyy zzz')} + '. '+${post.description}+' (parentPost='+${post.parentPostId}+')'" class="mb-0"/>
             <div th:text="'Last modified: '+${#dates.format(post.dateModified,'dd-MM-yyyy')}" class="mb-0.5 opacity-75"></div>
         </div>
         <small class="opacity-50 text-nowrap">[x]</small>
     </div>
 </a>
+
 </div>
 </body>

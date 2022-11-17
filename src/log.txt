@@ -21,3 +21,4 @@ todo: add lookup table
 todo: get different icons for status states
 todo: user (authorization and authentication)
 todo: persistent navbar
+todo: show only node-posts in the posts / to do page
