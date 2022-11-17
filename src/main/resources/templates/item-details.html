@@ -14,14 +14,15 @@
         <h2 th:text="${post.description}"/></h2>
         <p><b>Post text:</b> <span th:text="${post.postText}"></span></p>
         <p><b>Status:</b> <span th:text="${post.status}"></span></p>
-        <p><b>Last Modified:</b> <span th:text="${post.dateModified}"/></span></p>
+        <p><b>Last Modified:</b> <span th:text="${post.dateModified}"></span></p>
         <p><b>Date Created:</b> <span th:text="${post.dateCreated}"/></span></p>
         <p><b>Completed:</b> <span th:text="${post.completed}" /></span></p>
-        <a th:href="'/'+${post.id}+'/add-subpost'" class="btn btn-warning">Add Comment</a>
-        <a th:href="'/'+${post.id}+'/edit'" class="btn btn-warning">Edit</a>
-        <a th:href="'/'+${post.id}+'/delete'" class="btn btn-warning">Delete</a>
+        <a th:href="'/item-details/'+${post.id}+'/add-child-item'" class="btn btn-warning">Add Comment</a>
+        <a th:href="'/item-details/'+${post.id}+'/edit-item'" class="btn btn-warning">Edit</a>
+        <form th:action="'/item-details/'+${post.id}+'/delete-item'" method="post">
+            <button type="submit" class="btn btn-warning mt-2">Delete</button>
+        </form>
 
-        <p><b></b></p>
     </div>
 </div>
 <!--<div class="container mt-5">-->

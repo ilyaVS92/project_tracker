@@ -3,10 +3,21 @@
 2022-xi-14: remade project and changed from h2 to mysql; needed start mamp, config password and auth, and to create a db before the program would run
 2022-xi-15: got project list page (formally to-do list) working - lesson from here: always go to the line indicated in the error
 changed list type for item list. Now list of posts is clickable and takes user to detail page
-2022-xi-16:
+2022-xi-16: added editing functionality with dateModified auto-update; added deletion functionality
+2022-xi-17: fixed delete button fx; attempted to add-child-item fx but parent_post_id is not taking values from the program
+possible solution: look into fixing the name of the column - maybe add @Column(name=... or dx something in the meth
+on button press add-child-item => 404 not found
+removed th:action="/add-child-item" and method started working
+
 todo: 1. add validation to textboxes
 todo: 2. add checkbox for completed items
-todo: 3. add information about dates to post-page - x
-todo: 4. convert date to format
-todo: 5. add textboxes to add-item and detail pages
-todo: 6. add delete and edit buttons; add functionality
+todo: 3. add information about dates to post-page - x 2022-xi-16
+todo: 4. convert date to format -x 2022-xi-16
+todo: 5. add textboxes to add-item and detail pages - x 2022-xi-16
+todo: 6. add delete and edit buttons; add functionality - x 2022-xi-16
+todo: get local time (need to query location and return calculated time with respect to UTC)
+todo: add delete modal
+todo: add lookup table
+todo: get different icons for status states
+todo: user (authorization and authentication)
+todo: persistent navbar
