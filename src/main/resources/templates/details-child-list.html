@@ -11,7 +11,7 @@
 <header th:insert="blocks/header-black"></header>
 <div class="container mt-5">
   <div th:each="post : ${singlePostItem}" class="alert alert-info mt-2">
-    <h2 th:text="${post.description}"/></h2>
+    <h2 th:text="${post.description}+' (post.id='+${post.id}+')'"/></h2>
     <p><b>Post text:</b> <span th:text="${post.postText}"></span></p>
     <p><b>Status:</b> <span th:text="${post.status}"></span></p>
     <p><b>Last Modified:</b> <span th:text="${post.dateModified}"></span></p>

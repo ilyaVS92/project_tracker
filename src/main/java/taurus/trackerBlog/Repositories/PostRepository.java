@@ -22,8 +22,24 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     ArrayList<Post> findAllChildPosts(long id);
 
     @Query(
-            value = "SELECT * FROM post WHERE description=?",
+            value = "SELECT * FROM post WHERE description LIKE %?%",
             nativeQuery = true)
-    Optional<Post> findPostsByDescription(String description);
+    ArrayList<Post> findPostsByDescription(String searchDescription);
+
+//    @Query(
+//            value = "SELECT * FROM post WHERE TEXT LIKE %?%",
+//            nativeQuery = true)
+//    ArrayList<Post> findPostsByText(String searchText);
+////    SELECT title FROM pages WHERE my_col LIKE %$param1% OR another_col LIKE %$param2%;
+//    @Query(
+//            value = "SELECT * FROM post WHERE TEXT LIKE %?% OR description LIKE %?%",
+//            nativeQuery = true)
+//    ArrayList<Post> findPostsByDescAndText(String searchText);
+
+
+//    @Query(
+//            value = "SELECT count() FROM post WHERE parent_post_id=?",
+//            nativeQuery = true)
+//    Iterable<Long> getPostCount(long id);
 }
 

@@ -6,19 +6,40 @@ changed list type for item list. Now list of posts is clickable and takes user t
 2022-xi-16: added editing functionality with dateModified auto-update; added deletion functionality
 2022-xi-17: fixed delete button fx; attempted to add-child-item fx but parent_post_id is not taking values from the program
 possible solution: look into fixing the name of the column - maybe add @Column(name=... or dx something in the meth
-on button press add-child-item => 404 not found
+on button press add-child-item => 404 not found - fixed; add-child now working and updating postParentId
 removed th:action="/add-child-item" and method started working
+2022-xi-18 to 2022-xii-1: vacation
+2022-xii-02: added search button - now generates a 405 error - post is an invalid request type
+405 error corrected;
+set method to post - @PostMapping("/Seach") where "/Search" was the link of the page being diplayed at the time of btn press
+2022-xii-04: search results "byDescription" return an empty result set with a java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 error when searching for a non-exact match (the repository uses the "lIKE" command)
+exact search returns correct result.
+global search results now works - needed to add the % operator without any quotes to around the question mark
+NEXT: add search function to the navbar
 
-todo: 1. add validation to textboxes
+
+TODO Cosmetic:
 todo: 2. add checkbox for completed items
-todo: 3. add information about dates to post-page - x 2022-xi-16
-todo: 4. convert date to format -x 2022-xi-16
-todo: 5. add textboxes to add-item and detail pages - x 2022-xi-16
-todo: 6. add delete and edit buttons; add functionality - x 2022-xi-16
+todo: persistent navbar
+todo: get different icons for status states
+todo: fixed navbar
+
+TODO Functional:
+todo: 1. add validation to textboxes
 todo: get local time (need to query location and return calculated time with respect to UTC)
 todo: add delete modal
-todo: add lookup table
-todo: get different icons for status states
-todo: user (authorization and authentication)
-todo: persistent navbar
-todo: show only node-posts in the posts / to do page
+todo: implement lookup table
+todo: implement user (authorization and authentication)
+todo: add counter for subposts
+todo: add sorting for posts
+todo: add sorting for subposts
+todo: implement search functions
+todo: pagination
+
+TODO COMPELTE:
+todo: 3. add information about dates to post-page - x 2022-xi-16
+todo: 4. convert date to format dd-MM-YYYY -x 2022-xi-16
+todo: 5. add textboxes to add-item and detail pages - x 2022-xi-16
+todo: 6. add delete and edit buttons; add functionality - x 2022-xi-16
+todo: show only node-posts in the posts / to do page -x 2022-xi-17
+todo: implement basic tree structure view with linked posts by parentPostId -x 2022-xi-17

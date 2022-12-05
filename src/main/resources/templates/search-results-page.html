@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <title>search results</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+</head>
+<body>
+<div>
+    <header th:insert="blocks/header-black"></header>
+    <h1>Search Results page temp - there shouldn't be anything here; list of found items should follow</h1>
+</div>
+
+<div th:each="post:${resultsByDescription}" class="list-group w-auto">
+    <a th:href="'/item-details/' + ${post.id}" class="list-group-item list-group-item-action d-flex gap-1 py-3" aria-current="true">
+        <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+        <div class="d-flex gap-1 w-100 justify-content-between">
+            <div>
+                <h6 th:text="${#dates.format(post.dateCreated,'dd-MM-yyyy zzz')} + '. '+${post.description}+' (parentPost='+${post.parentPostId}+')'" class="mb-0"/>
+                <div th:text="'Last modified: '+${#dates.format(post.dateModified,'dd-MM-yyyy')}" class="mb-0.5 opacity-75"></div>
+            </div>
+            <small class="opacity-50 text-nowrap">[x]</small>
+        </div>
+    </a>
+
+</div>
+</body>

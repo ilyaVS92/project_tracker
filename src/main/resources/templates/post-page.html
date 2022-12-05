@@ -9,7 +9,14 @@
 <body>
 <div>
     <header th:insert="blocks/header-black"></header>
-    <h1>Project Tracker with Spring Boot</h1>
+    <div class="input-group rounded">
+        <h1>Project Tracker with Spring Boot</h1>
+
+<!--        <input type="search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />-->
+<!--        <span class="input-group-text border-0" id="search-addon">-->
+<!--    <i class="fas fa-search"></i>-->
+<!--  </span>-->
+    </div>
 </div>
 
 <div th:each="post:${postItems}" class="list-group w-auto">
