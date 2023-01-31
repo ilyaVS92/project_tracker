@@ -1,16 +1,22 @@
 package taurus.trackerBlog.Models;
 
 import com.fasterxml.jackson.annotation.JsonTypeId;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.List;
 
 @Component
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post implements Serializable {
 
     @Getter
@@ -47,15 +53,17 @@ public class Post implements Serializable {
 
     @Getter
     @Setter
-    private long parentPostId;
+    @Column(name = "parent_id")
+    private long parentId;
 
     @Getter
     @Setter
     private boolean completed;
 
-    public Post(){
+    private List<Note> commentsList;
 
-    }
+
+    // private UserEntity postAuthor;
 
     public Post(String description, String postText, String status){
         this.description = description;
@@ -70,7 +78,7 @@ public class Post implements Serializable {
         this.postText = postText;
         this.status = status;
         this.dateModified = Instant.now();
-        this.parentPostId = parentPostId;
+        this.parentId = parentPostId;
     }
 
     public Post(long id, String description, Instant dateCreated, Instant dateModified, String status, String postText, int authorId, long parentPostId, boolean completed) {
@@ -81,7 +89,7 @@ public class Post implements Serializable {
         this.status = status;
         this.postText = postText;
         this.authorId = authorId;
-        this.parentPostId = parentPostId;
+        this.parentId = parentPostId;
         this.completed = completed;
     }
 
@@ -95,7 +103,7 @@ public class Post implements Serializable {
                 ", status='" + status + '\'' +
                 ", postText='" + postText + '\'' +
                 ", authorId=" + authorId +
-                ", parentPostId=" + parentPostId +
+                ", parentPostId=" + parentId +
                 ", completed=" + completed +
                 '}';
     }

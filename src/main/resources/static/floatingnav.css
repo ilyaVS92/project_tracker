@@ -1,0 +1,14 @@
+body {
+margin-top:50px;
+}
+.floatingnav {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+font-family: sans-serif;
+font-size: 13px
+color:#333333;
+background:#dddddd;
+border-top: 1px sold #cccccc;
+}

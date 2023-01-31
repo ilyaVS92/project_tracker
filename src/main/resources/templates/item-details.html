@@ -20,7 +20,7 @@
         <a th:href="'/item-details/'+${post.id}+'/add-child-item'" class="btn btn-warning">Add Comment</a>
         <a th:href="'/item-details/'+${post.id}+'/edit-item'" class="btn btn-warning">Edit</a>
         <form th:action="'/item-details/'+${post.id}+'/delete-item'" method="post">
-            <button type="submit" class="btn btn-warning mt-2">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
     </div>

@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add CSS and JS to Thymeleaf</title>
+    <link th:href="@{/bnav.css}" rel="stylesheet" />
 </head>
 <body>
+<h1>Bottom Nav Bar - HTML & CSS only</h1>
+<ul class="summary">
+    <li>No JS required!</li>
+    <li>Responsive &amp; mobile-friendly</li>
+</ul>
+<nav class="bnav">
+    <div class="bnav__item">logged in as<strong>dcode</strong>
+    </div>
 
+    <div class="bnav__item">
+        <a href="#" class="bnav__link">FAQs</a>
+    </div>
+    <div class="bnav__item bnav__item--right bnav__item--clickable" tabindex="0">
+        Settings
+        <ul class="bnav__submenu">
+            <li class="bnav__submenuitem">
+                <a href="#" class="bnav__link bnav__link--full-width">Profile</a>
+            </li>
+            <li class="bnav__submenuitem">
+                <a href="#" class="bnav__link bnav__link--full-width">Server Settings</a>
+            </li>
+            <li class="bnav__submenuitem">
+                <a href="#" class="bnav__link bnav__link--full-width">Themes</a>
+            </li>
+            <li class="bnav__submenuitem">
+                <a href="#" class="bnav__link bnav__link--full-width">Updates</a>
+            </li>
+            <li class="bnav__submenuitem">
+                <a href="#" class="bnav__link bnav__link--full-width">Log out</a>
+            </li>
+<!--            <li class="bnav__submenuitem">-->
+<!--                <a href="#" class="bnav__link">kjkljlkj</a>-->
+<!--            </li>-->
+<!--            <li class="bnav__submenuitem">-->
+<!--                <a href="#" class="bnav__link">fgdfdfdg</a>-->
+<!--            </li>-->
+<!--            <li class="bnav__submenuitem">-->
+<!--                <a href="#" class="bnav__link">tuetwers</a>-->
+<!--            </li>-->
+<!--            <li class="bnav__submenuitem">-->
+<!--                <a href="#" class="bnav__link">cxzcxzcx</a>-->
+<!--            </li>-->
+        </ul>
+    </div>
+</nav>
 </body>
 </html>

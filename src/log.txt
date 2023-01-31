@@ -11,20 +11,26 @@ removed th:action="/add-child-item" and method started working
 2022-xi-18 to 2022-xii-1: vacation
 2022-xii-02: added search button - now generates a 405 error - post is an invalid request type
 405 error corrected;
-set method to post - @PostMapping("/Seach") where "/Search" was the link of the page being diplayed at the time of btn press
+set method to post - @PostMapping("/Search") where "/Search" was the link of the page being diplayed at the time of btn press
 2022-xii-04: search results "byDescription" return an empty result set with a java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0 error when searching for a non-exact match (the repository uses the "lIKE" command)
 exact search returns correct result.
 global search results now works - needed to add the % operator without any quotes to around the question mark
+2022-xii-05: created user login and register pages; fixed 400 error (checkbox data was not being passed to the repo)
+added local var and model.addAttribute("myBooleanVariable", myBooleanVariable); to the method in the controller
+removing the local var boolean causes the 400 error to appear again with search. without it, there is no difference between the searches
+NEXT: check if extended search method actually works; currently getting same number of answers
 NEXT: add search function to the navbar
 
 
 TODO Cosmetic:
+todo: create UI for advanced search
 todo: 2. add checkbox for completed items
 todo: persistent navbar
 todo: get different icons for status states
 todo: fixed navbar
 
 TODO Functional:
+todo: create errors log for each post (will probably need a new table)
 todo: 1. add validation to textboxes
 todo: get local time (need to query location and return calculated time with respect to UTC)
 todo: add delete modal
@@ -33,13 +39,28 @@ todo: implement user (authorization and authentication)
 todo: add counter for subposts
 todo: add sorting for posts
 todo: add sorting for subposts
-todo: implement search functions
-todo: pagination
+todo: implement advanced search functions
+todo: Lookup Spring MVC Form validator
+todo: see what happens when I delete a root node -> make a contingency for that
+todo: when adding a child item, go to the parent post.
+todo: pagination - so that the system only loads the first 10 posts for performance reasons
 
-TODO COMPELTE:
+
+GOALS:
+1. login with individual users having access only to his or her own posts
+Complete: 2. CRUD operations
+3. basic validation of input
+4. limit on post depth (4 max)
+5. search with expanded options
+6. add images (bonus)
+
+
+TODO COMPLETED:
 todo: 3. add information about dates to post-page - x 2022-xi-16
 todo: 4. convert date to format dd-MM-YYYY -x 2022-xi-16
 todo: 5. add textboxes to add-item and detail pages - x 2022-xi-16
 todo: 6. add delete and edit buttons; add functionality - x 2022-xi-16
 todo: show only node-posts in the posts / to do page -x 2022-xi-17
 todo: implement basic tree structure view with linked posts by parentPostId -x 2022-xi-17
+todo: create basic UI for search -x 2022-xii-03
+todo: implement basic search function -x 2022-xii-04
